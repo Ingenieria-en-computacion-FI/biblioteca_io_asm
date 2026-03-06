@@ -1,0 +1,25 @@
+name: Autograding
+
+on: [push]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+
+    - name: Install NASM
+      run: |
+        sudo apt-get update
+        sudo apt-get install nasm
+
+
+    - name: Run tests
+      run: |
+        bash tests/test.sh
