@@ -17,10 +17,18 @@ Por implementar:
 - scan_string
 - newline
 
-## Compilar
+## Ensamblar y enlazar
 
-make
+nasm -f elf32 scan_int.asm -o scan_int.o
+nasm -f elf32 print_int.asm -o print_int.o
+nasm -f elf32 scan_char.asm -o scan_char.o
+nasm -f elf32 print_char.asm -o print_char.o
+nasm -f elf32 scan_string.asm -o scan_string.o
+nasm -f elf32 print_string.asm -o print_string.o
+nasm -f elf32 newline.asm -o newline.o
+nasm -f elf32 main.asm -o main.o
 
+ld -m elf_i386 scan_int.o print_int.o scan_char.o print_char.o print_string.o scan_string.o newline.o main.o -o programa
 ## Ejecutar
 
 ./program
