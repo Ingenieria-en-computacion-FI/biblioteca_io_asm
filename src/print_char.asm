@@ -1,24 +1,23 @@
-SECTION .bss
-char_buffer resb 1
-
 SECTION .text
-global scan_char
+global print_char
 
 ; ---------------------------------
-; scan_char
-; Salida:
-;   AL = caracter leído
+; print_char
+; Entrada:
+;   AL = caracter a imprimir
 ; ---------------------------------
 
-scan_char:
+print_char:
 
     push ebp
     mov ebp, esp
 
     ; TODO:
-    ; 1. usar syscall read
-    ; 2. leer 1 byte desde stdin
-    ; 3. devolverlo en AL
+    ; 1. Guardar el caracter en memoria
+    ; 2. Usar syscall write
+    ; 3. Imprimir 1 byte
+
+    ; write(fd=1, buffer, 1)
 
     mov esp, ebp
     pop ebp
